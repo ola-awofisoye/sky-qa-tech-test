@@ -1,6 +1,6 @@
 <?php
 
-class Calculator implements iCalculator {
+class Calculator implements iCalculator, iScientificCalculator {
 
     protected $stack;
     protected $op;
@@ -71,6 +71,7 @@ class Calculator implements iCalculator {
                 break;
             case "/":
                 $result = $this->divide(array_shift($this->stack), array_shift($this->stack));
+
                 break;
         }
         $this->clearStack();
@@ -84,5 +85,35 @@ class Calculator implements iCalculator {
     public function readScreen() {
         $value = array_shift($this->stack);
         return $value;
+    }
+
+    public function cubeRoot($a){
+
+        $result= pow($a, 1/3);
+
+        return $result;
+
+    }
+    public function factorial($a){
+
+        $result=null;
+
+        $aa = gmp_fact($a);
+
+        $result = gmp_strval($aa);
+
+      //  $this->op = "!";
+
+        return $result;
+
+
+    }
+    public function decToHex($a){
+
+        $result = dechex ($a);
+       // $this->op = "..";
+         
+         return $result;
+
     }
 }

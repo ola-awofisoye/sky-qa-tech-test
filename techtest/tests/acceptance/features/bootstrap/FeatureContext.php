@@ -38,12 +38,48 @@ class FeatureContext extends BehatContext {
     public function iHitDivide() {
         $this->calculator->pressDivide();
     }
+        /**
+     * @When /^I hit "Add"$/
+     */
+    public function iHitAdd() {
+        $this->calculator->pressAdd();
+    }
+         /**
+     * @When /^I hit "subtract"$/
+     */
+    public function iHitSubtract() {
+        $this->calculator->pressSubtract();
+    }
 
     /**
      * @Given /^I hit "equals"$/
      */
     public function iHitEquals() {
         $this->calculator->pressEquals();
+    }
+   /**
+     * @Given /^I hit cuberoot$/
+     */
+    public function iHitCuberoot()
+    {
+     //   $this->calculator->cubeRoot();
+    }
+
+    /**
+     * @Given /^I hit decToHex$/
+     */
+    public function iHitDectohex()
+    {
+      //  $this->calculator->decToHex();
+    }
+
+
+    /**
+     * @Given /^I hit factorial$/
+     */
+    public function iHitFactorial()
+    {
+       // $this->calculator->factorial();
     }
 
     /**
@@ -55,4 +91,5 @@ class FeatureContext extends BehatContext {
             throw new Exception("Wrong result, actual is [$result]");
         }
     }
+
 }
